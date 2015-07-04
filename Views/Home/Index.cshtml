@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div ng-controller="mvcCRUDCtrl">
+    <div class="divList">
+        <p><b><i>Book List</i></b></p>
+        <table class="table table-hover">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>Title</b></td>
+                <td><b>Author</b></td>
+                <td><b>Publisher</b></td>
+                <td><b>Isbn</b></td>
+                <td><b>Action</b></td>
+            </tr>
+            <tr ng-repeat="book in books">
+                <td>
+                    {{book.Id}}
+                </td>
+                <td>
+                    {{book.Title}}
+                </td>
+                <td>
+                    {{book.Author}}
+                </td>
+                <td>
+                    {{book.Publisher}}
+                </td>
+                <td>
+                    {{book.Isbn}}
+                </td>
+                <td>
+                    <span ng-click="editBook(book)" class="btn btn-primary">Edit</span>
+                    <span ng-click="deleteBook(book)" class="btn btn-danger">Delete</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <span ng-click="AddBookDiv()" class="btn btn-default" >
+        Add Book
+    </span>
+    <div ng-show="divBook">
+        <p class="divHead"></p>
+        <table class="table">
+            <tr>
+                <td><b><i>{{Action}} Book</i></b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> 
+            <tr>
+                <td><b>Id</b></td>
+                <td>
+                    <input type="text" disabled="disabled" ng-model="bookId" />
+                </td>
+                <td><b>Title</b></td>
+                <td>
+                    <input type="text" ng-model="bookTitle" />
+                </td>
+            </tr>           
+            <tr>
+                <td><b>Author</b></td>
+                <td>
+                    <input type="text" ng-model="bookAuthor" />
+                </td>
+                <td><b>Publisher</b></td>
+                <td>
+                    <input type="text" ng-model="bookPublisher" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Isbn</b></td>
+                <td>
+                    <input type="text" ng-model="bookIsbn" />
+                </td>
+                <td></td>
+                <td >
+                    <input type="button" class="btn btn-default" value="Save" ng-click="AddUpdateBook()" />
+                    <input type="button" class="btn btn-danger" value="Cancel" ng-click="Cancel()" />
+                </td>
+            </tr>
+        </table>        
+    </div>
+</div>
