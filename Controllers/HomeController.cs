@@ -12,7 +12,7 @@ namespace CRUD_AngularJS_ASPNET_MVC.Controllers
         // GET: Book
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         // GET: All books
